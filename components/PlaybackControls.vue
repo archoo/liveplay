@@ -51,8 +51,8 @@ const handlePanic = () => {
   border-bottom: 1px solid var(--color-border);
   display: flex;
   align-items: center;
-  gap: var(--spacing-lg);
-  padding: 0 var(--spacing-lg);
+  gap: var(--spacing-md);
+  padding: 0 var(--spacing-md);
   background-color: var(--color-surface);
 }
 

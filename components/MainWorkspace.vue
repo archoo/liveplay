@@ -30,7 +30,7 @@ const { triggerByUuid, triggerByIndex, stopCue } = useAudioEngine();
 // Resizable cart width
 const cartWidth = ref(500);
 const isResizing = ref(false);
-const cartClosed = ref(false);
+const cartClosed = ref(true);
 const cartFullscreen = ref(false);
 
 const startResize = (e: MouseEvent) => {
@@ -113,15 +113,32 @@ if (import.meta.client && window.electronAPI) {
   });
 }
 
+let dblPress = 0;
 // Save on F1 key (alternative to big play button)
 const handleKeydown = (e: KeyboardEvent) => {
-  if (e.key === 'F1') {
+ 
+  if (e.key === ' ') {
     e.preventDefault();
     if (selectedItem.value && selectedItem.value.type === 'audio') {
       const { playCue } = useAudioEngine();
       playCue(selectedItem.value as any);
     }
   }
+
+  if (e.key === 'Escape') {
+    if (dblPress>0) {
+      if (e.timeStamp - dblPress < 500) {
+        const { panicStop } = useAudioEngine();
+        panicStop();
+      }
+    }
+    else { 
+      dblPress = e.timeStamp;
+      setTimeout(()=>{dblPress=0},500);
+    }
+    e.preventDefault();
+  }
+
 };
 
 onMounted(() => {

@@ -51,10 +51,7 @@
     "material-symbols": "^0.39.1",
     "play-dl": "^1.9.7",
     "uuid": "^9.0.1",
-    "wavesurfer.js": "^7.5.0",
-    "youtube-mp3-downloader": "^0.7.11",
-    "youtube-search-api": "^2.0.1",
-    "yt-dlp-wrap": "^2.3.12"
+    "wavesurfer.js": "^7.5.0"
   },
   "build": {
     "appId": "com.liveplay.app",
@@ -86,7 +83,9 @@
       "target": [
         {
           "target": "nsis",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ],
       "icon": "assets/icons/4092w/app_icon_darkmode@4092px.png",
@@ -96,11 +95,17 @@
       "target": [
         {
           "target": "dmg",
-          "arch": ["x64", "arm64"]
+          "arch": [
+            "x64",
+            "arm64"
+          ]
         },
         {
           "target": "zip",
-          "arch": ["x64", "arm64"]
+          "arch": [
+            "x64",
+            "arm64"
+          ]
         }
       ],
       "icon": "assets/icons/4092w/app_icon_darkmode@4092px.png",
@@ -110,15 +115,21 @@
       "target": [
         {
           "target": "AppImage",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         },
         {
           "target": "deb",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         },
         {
           "target": "rpm",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ],
       "icon": "assets/icons/4092w/app_icon_darkmode@4092px.png",
