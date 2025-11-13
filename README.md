@@ -1,3 +1,8 @@
+# FORK INFO
+
+This is a fork of the original project .. do not rely on it for anything .. all docs and other references left as per original
+
+
 # LivePlay
 
 ![Main liveplay user interface, with playlist editor, cue cart and properties panel](/public/screenshots/liveplay_screenshot.jpg)
