@@ -16,19 +16,6 @@ declare global {
       setCurrentProject: (projectPath: string) => Promise<{ success: boolean }>;
       getFilePath: (file: File) => string | null;
       checkFfmpeg: () => Promise<{ available: boolean; path: string | null }>;
-      searchYouTube: (query: string) => Promise<Array<{
-        id: string;
-        title: string;
-        thumbnail: string;
-        channelTitle: string;
-        length?: string;
-      }>>;
-      downloadYouTubeAudio: (
-        videoId: string,
-        title: string,
-        projectFolderPath: string,
-        progressCallback?: (progress: { videoId: string; percentage: number; status: string }) => void
-      ) => Promise<{ success: boolean; file: string; fileName: string; title: string }>;
       onMenuNewProject: (callback: () => void) => void;
       onMenuOpenProject: (callback: () => void) => void;
       onMenuSaveProject: (callback: () => void) => void;

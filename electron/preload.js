@@ -52,24 +52,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
   // FFmpeg check
   checkFfmpeg: () => ipcRenderer.invoke('check-ffmpeg'),
 
-  // YouTube features
-  searchYouTube: (query) => ipcRenderer.invoke('search-youtube', query),
-  downloadYouTubeAudio: (videoId, title, projectFolderPath, progressCallback) => {
-    // Set up progress listener
-    const progressListener = (event, progress) => {
-      if (progress.videoId === videoId && progressCallback) {
-        progressCallback(progress);
-      }
-    };
-    ipcRenderer.on('youtube-download-progress', progressListener);
-    
-    // Start download and clean up listener when done
-    return ipcRenderer.invoke('download-youtube-audio', videoId, title, projectFolderPath)
-      .finally(() => {
-        ipcRenderer.removeListener('youtube-download-progress', progressListener);
-      });
-  },
-
   // Menu events
   onMenuNewProject: (callback) => ipcRenderer.on('menu-new-project', callback),
   onMenuOpenProject: (callback) => ipcRenderer.on('menu-open-project', callback),
